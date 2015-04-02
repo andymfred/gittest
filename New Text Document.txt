@@ -1,0 +1,242 @@
+Welcome to Git (version 1.8.4-preview20130916)
+
+
+Run 'git help git' to display the help index.
+Run 'git help <command>' to display help for specific commands.
+
+afredrickson@C-211-10 ~
+$ cd gittest
+sh.exe": cd: gittest: No such file or directory
+
+afredrickson@C-211-10 ~
+$ cd desktop
+
+afredrickson@C-211-10 ~/desktop
+$ cd gittest
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ ls
+test1.txt  test2.txt
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ add .
+sh.exe": add: command not found
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git init
+Reinitialized existing Git repository in c:/Users/afredrickson/desktop/gittest/.
+git/
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git add .
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git commit -m
+error: switch `m' requires a value
+usage: git commit [options] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified co
+mmit
+    --squash <commit>     use autosquash formatted message to squash specified c
+ommit
+    --reset-author        the commit is authored by me now (used with -C/-c/--am
+end)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit hook
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no.
+ (Default: all)
+
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ ls
+test1.txt  test2.txt
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git status
+# On branch master
+nothing to commit, working directory clean
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git remote add origin https://github.com/andymfred/gittest.git
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git remote
+origin
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git pull origin master
+warning: no common commits
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/andymfred/gittest
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+Merge made by the 'recursive' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git push origin master
+Username for 'https://github.com': andymfred
+Password for 'https://andymfred@github.com':
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 574 bytes | 0 bytes/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+To https://github.com/andymfred/gittest.git
+   26a0c59..e497a1f  master -> master
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git add .
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   test1.txt
+#
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git add -u
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   test1.txt
+#
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git commit -m "changed test1"
+[master 2845b64] changed test1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git pull origin master
+From https://github.com/andymfred/gittest
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git push origin master
+Username for 'https://github.com': andymfred
+Password for 'https://andymfred@github.com':
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 271 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://github.com/andymfred/gittest.git
+   e497a1f..2845b64  master -> master
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git status
+# On branch master
+nothing to commit, working directory clean
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git add .
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   test1.txt
+#
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git commit -m "Edit to test1"
+[master d5c8dae] Edit to test1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git push origin master
+Username for 'https://github.com': andymfred
+Password for 'https://andymfred@github.com':
+To https://github.com/andymfred/gittest.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/andymfred/gittest.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/andymfred/gittest
+ * branch            master     -> FETCH_HEAD
+   2845b64..81c90db  master     -> origin/master
+Merge made by the 'recursive' strategy.
+ test3 | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test3
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git push origin master
+Username for 'https://github.com': andymfred
+Password for 'https://andymfred@github.com':
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 502 bytes | 0 bytes/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+To https://github.com/andymfred/gittest.git
+   81c90db..bc5d4cf  master -> master
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$ git status
+# On branch master
+nothing to commit, working directory clean
+
+afredrickson@C-211-10 ~/desktop/gittest (master)
+$
