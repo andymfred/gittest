@@ -1,1 +1,2 @@
-******* edit2 Test1 file
+clone { }
+ 
